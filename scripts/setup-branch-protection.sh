@@ -40,8 +40,18 @@ JSON
 echo "Repo:    $REPO"
 echo "Reviews: $REVIEWS approval(s) required on main + staging"
 
+# Capability check — rulesets need a PUBLIC repo, or GitHub Pro/Team/Enterprise on a private one.
+if ! gh api "repos/$REPO/rulesets" --jq '.[].id' >/dev/null 2>&1; then
+  echo "ERROR: cannot manage rulesets on $REPO (private repo on the free plan?)." >&2
+  echo "Either make it public:" >&2
+  echo "  gh repo edit $REPO --visibility public --accept-visibility-change-consequences" >&2
+  echo "or upgrade to GitHub Pro/Team. The local guard-protected-branch.mjs hook still" >&2
+  echo "blocks pushes to main/staging in the meantime." >&2
+  exit 1
+fi
+
 # Idempotent: update the ruleset if it already exists, else create it.
-existing_id="$(gh api "repos/$REPO/rulesets" --jq ".[] | select(.name==\"$NAME\") | .id" 2>/dev/null || true)"
+existing_id="$(gh api "repos/$REPO/rulesets" --jq ".[] | select(.name==\"$NAME\") | .id" 2>/dev/null | head -1)"
 
 if [ -n "$existing_id" ]; then
   echo "Updating existing ruleset #$existing_id ..."
