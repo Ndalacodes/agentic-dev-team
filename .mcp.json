@@ -1,0 +1,21 @@
+{
+  "$comment": "Agentic Dev Team MCP servers. BigQuery runs locally via Google's MCP Toolbox on your gcloud ADC (no stored secret). dev-knowledge is Google's remote Developer Knowledge MCP (fresh GCP/Firebase docs) — authenticate once with /mcp. Change BIGQUERY_PROJECT and X-goog-user-project per project. magic (21st.dev) and Figma are configured separately (global / app connector).",
+  "mcpServers": {
+    "bigquery": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@toolbox-sdk/server", "--prebuilt", "bigquery", "--stdio"],
+      "env": {
+        "BIGQUERY_PROJECT": "echo-73ca9",
+        "GOOGLE_CLOUD_PROJECT": "echo-73ca9"
+      }
+    },
+    "dev-knowledge": {
+      "type": "http",
+      "url": "https://developerknowledge.googleapis.com/mcp",
+      "headers": {
+        "X-goog-user-project": "echo-73ca9"
+      }
+    }
+  }
+}

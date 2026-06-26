@@ -1,0 +1,12 @@
+# local, machine-specific Claude Code permissions — not part of the framework
+.claude/settings.local.json
+
+# generated feature folders (keep the contract doc)
+artifacts/*
+!artifacts/README.md
+
+# deps / noise
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
