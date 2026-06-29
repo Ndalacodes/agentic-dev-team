@@ -18,8 +18,11 @@ Use the **Claude-in-Chrome MCP** (`mcp__Claude_in_Chrome__*`, load via ToolSearc
 `computer-use` MCP only if Chrome isn't connected, or to `WebSearch` if no browser is
 available — and say which path you used.
 - Navigate to `https://www.pinterest.com/search/pins/?q=<theme>` and scan results.
-- Capture **3–6 strong references** as screenshots saved to
-  `artifacts/<feature>/02-inspiration/ref-N.png` (use the browser's screenshot tool).
+- Capture **3–6 strong references** into `artifacts/<feature>/02-inspiration/`. Name each
+  file by its **real image type**, never blindly `.png`: Pinterest originals from
+  `i.pinimg.com` are JPEG → `ref-N.jpg`; a full-page browser screenshot is PNG → `ref-N.png`.
+  If unsure, sniff the magic bytes (`FF D8` = JPEG, `89 50 4E 47` = PNG) and match the
+  extension to the bytes.
 - If a step needs a Pinterest login or hits a wall, stop and report what you got plus what's
   blocked — don't fabricate references.
 
