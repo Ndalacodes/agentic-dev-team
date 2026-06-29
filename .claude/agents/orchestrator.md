@@ -18,7 +18,8 @@ yourself — you **dispatch the specialist agents** and enforce the contract in
    `STATUS.md` (template in `artifacts/README.md`) with every stage = `todo`.
 3. **Run the pipeline**, flipping each `STATUS.md` row to `doing` then `done`:
    1. `product-manager` → `01-prd.md` + `wireframe.html`
-   2. `ux-developer` → `02-design-spec.md`
+   2a. `design-inspiration` → `02-inspiration.md` (Pinterest moodboard → Figma replica or design prompt)
+   2b. `ux-developer` → `02-design-spec.md` (reads `02-inspiration.md`)
    3. `software-engineer` → `03-architecture.md` (defines 3 work packages)
    4. **Fan out in parallel** (all three in ONE message): `api-engineer`,
       `pipeline-engineer`, `dashboard-engineer`.
