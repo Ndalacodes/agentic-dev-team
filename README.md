@@ -12,7 +12,8 @@ Read **[CLAUDE.md](CLAUDE.md)** for the full operating manual. This README is th
 | Persona | Agent | Superpower |
 |---------|-------|-----------|
 | Product Manager (multimodal) | `product-manager` | sketch/idea → PRD + clickable wireframe |
-| UI/UX Developer (Plan Mode + Figma) | `ux-developer` | PRD → production design system + screens |
+| ↳ Design Inspiration scout | `design-inspiration` | Pinterest moodboard → Figma replica (or a design prompt) |
+| UI/UX Developer (Plan Mode + Figma) | `ux-developer` | PRD + inspiration → production design system + screens |
 | Software Engineer (GCP Skills + Dev Doc MCP) | `software-engineer` | cloud architecture + fans out 3 builders |
 | ↳ builders (parallel) | `api-engineer`, `pipeline-engineer`, `dashboard-engineer` | API · ingestion · dashboard |
 | Security Engineer (Hooks) | `security-engineer` | OWASP + IAM review, owns the deploy gate |
@@ -65,15 +66,16 @@ artifacts/                # per-feature handoff folders (the shared memory)
 | **Figma** | design source of truth for the UX Developer | app connector |
 
 Agents load these on demand via ToolSearch; if one isn't connected, that agent says so
-rather than guessing. Change `BIGQUERY_PROJECT` / `X-goog-user-project` in
-[.mcp.json](.mcp.json) per project.
+rather than guessing. Copy [.mcp.json.example](.mcp.json.example) → `.mcp.json` (gitignored,
+so your project id never lands in the repo) and set `BIGQUERY_PROJECT` /
+`X-goog-user-project` to your GCP project.
 
 ## Install into another project
 
 The agents and commands are mirrored to `~/.claude` so the personas and `/ship` work in any
 project. To get the **full loop + safety hooks + MCP servers** in a new repo, run the
-installer (copies `CLAUDE.md`, `.claude/hooks/`, `.claude/settings.json`, `.mcp.json`, and
-the artifacts contract — never clobbering existing config):
+installer (copies `CLAUDE.md`, `.claude/hooks/`, `.claude/settings.json`, `.mcp.json` from
+the example, and the artifacts contract — never clobbering existing config):
 
 ```powershell
 scripts\install-team.ps1 -Target "D:\Code\my-app" -GcpProject "my-gcp-project"

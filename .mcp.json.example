@@ -1,0 +1,21 @@
+{
+  "$comment": "Copy this file to .mcp.json and set your GCP project id. .mcp.json is gitignored, so your real project id never lands in the public repo. bigquery runs locally via Google's MCP Toolbox on your gcloud ADC (no stored secret). dev-knowledge is Google's remote Developer Knowledge MCP — authenticate once with /mcp. magic (21st.dev) and Figma are configured separately (global config / app connector).",
+  "mcpServers": {
+    "bigquery": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@toolbox-sdk/server", "--prebuilt", "bigquery", "--stdio"],
+      "env": {
+        "BIGQUERY_PROJECT": "your-gcp-project-id",
+        "GOOGLE_CLOUD_PROJECT": "your-gcp-project-id"
+      }
+    },
+    "dev-knowledge": {
+      "type": "http",
+      "url": "https://developerknowledge.googleapis.com/mcp",
+      "headers": {
+        "X-goog-user-project": "your-gcp-project-id"
+      }
+    }
+  }
+}

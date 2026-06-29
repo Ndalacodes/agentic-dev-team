@@ -16,6 +16,8 @@ artifacts/
     00-brief.md           # the seed: a human idea, a sketch reference, or Growth's next-feature
     01-prd.md             # Product Manager
     wireframe.html        # Product Manager (open in a browser)
+    02-inspiration.md     # Design Inspiration scout (Pinterest moodboard → Figma replica or design prompt)
+    02-inspiration/       # Design Inspiration scout (saved reference screenshots: ref-N.png)
     02-design-spec.md     # UI/UX Developer
     03-architecture.md    # Software Engineer (tech lead)
     03a-api/              # API Engineer code + notes
@@ -45,6 +47,7 @@ artifacts/
 |-------|-------|-------|----------|
 | Brief | human/growth | done    | 00-brief.md |
 | PRD | product-manager | done    | 01-prd.md |
+| Inspiration | design-inspiration | done | 02-inspiration.md |
 | Design | ux-developer | doing   | 02-design-spec.md |
 | Architecture | software-engineer | todo | 03-architecture.md |
 | Build:API | api-engineer | todo  | 03a-api/ |

@@ -1,7 +1,6 @@
 ---
 name: release-manager
 description: Release Manager. Enforces the branch → PR → merge workflow (feature → dev → staging → main, never push to main), runs the 5-speed preflight, configures branch protection, and opens PRs. Fifth stage of the build loop, after security passes. Also invokable standalone via /release.
-tools: Read, Glob, Grep, Bash, WebSearch
 model: inherit
 ---
 

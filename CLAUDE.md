@@ -34,7 +34,8 @@ When this project is active you (the main thread) act as the **Orchestrator**
 | # | Persona | Agent | Superpower | Primary tools / MCP | Reads | Writes |
 |---|---------|-------|-----------|---------------------|-------|--------|
 | 1 | **Product Manager** (multimodal) | `product-manager` | Turns a napkin sketch or one-line idea into a PRD + clickable wireframe | Read (images), `visualize`/`show_widget`, WebSearch | `00-brief.md` | `01-prd.md`, `wireframe.html` |
-| 2 | **UI/UX Developer** (Plan Mode + Figma) | `ux-developer` | PRD → production design system + screens, planned before built | Figma MCP, `ui-ux-pro-max`, 21st.dev/`magic`, **Plan Mode** | `01-prd.md` | `02-design-spec.md`, Figma file |
+| 2a | ↳ **Design Inspiration** scout | `design-inspiration` | Browses Pinterest → moodboard → **replicates the pick in Figma** (or writes a design prompt) | Claude-in-Chrome MCP, Figma MCP, Read (images) | `01-prd.md` | `02-inspiration.md` |
+| 2 | **UI/UX Developer** (Plan Mode + Figma) | `ux-developer` | PRD + inspiration → production design system + screens, planned before built | Figma MCP, `ui-ux-pro-max`, 21st.dev/`magic`, **Plan Mode** | `01-prd.md`, `02-inspiration.md` | `02-design-spec.md`, Figma file |
 | 3 | **Software Engineer** (Tech Lead) | `software-engineer` | GCP-native architecture using fresh docs + Skills, then fans out 3 builders | **Dev Knowledge MCP**, **Google Cloud Skills**, Bash | `02-design-spec.md` | `03-architecture.md`, work packages |
 | 3a | ↳ API Engineer | `api-engineer` | Cloud Run API + Firestore | GC Skills, Bash | `03-architecture.md` | `03a-api/` |
 | 3b | ↳ Pipeline Engineer | `pipeline-engineer` | Firestore → BigQuery ingestion | GC Skills, Bash | `03-architecture.md` | `03b-pipeline/` |
@@ -43,6 +44,12 @@ When this project is active you (the main thread) act as the **Orchestrator**
 | 4 | **Security Engineer** (Plugin Hooks) | `security-engineer` | OWASP + IAM least-privilege review, owns the deploy gate | `/security-review`, hooks, Bash | code + `04` | `05-security-report.md` |
 | 5 | **Release Manager** | `release-manager` | branch → PR → merge + the 5 speed checks (a **gate**) | Bash (git/gh), hooks | `05` | `06-release.md` |
 | 6 | **Growth Marketer** (BigQuery) | `growth-marketer` | Live analytics → insights → **next feature brief** | BigQuery MCP, Looker | live data | `07-insights.md` → next `00-brief.md` |
+
+> **Tooling & permissions.** Every agent inherits the full toolset so its mandated MCPs and
+> Skills (Figma, BigQuery, Dev Knowledge, magic, `ui-ux-pro-max`, …) actually resolve — lane
+> discipline comes from each agent's prompt, and the irreversible operations are caught by the
+> safety-gate hooks (§4), not by withholding tools. The one exception is the
+> `production-auditor`, kept **read-only** (no Write/Edit) so it can't "fix" what it grades.
 
 ---
 
@@ -56,6 +63,9 @@ When this project is active you (the main thread) act as the **Orchestrator**
                        ▼                                                     │
    1. Product Manager ──▶ 01-prd.md + wireframe.html                         │
                        │                                                     │
+                       ▼                                                     │
+  2a. Design Inspiration ──▶ 02-inspiration.md                               │
+       (Pinterest moodboard → Figma replica, or a design prompt)            │
                        ▼                                                     │
    2. UX Developer (Plan Mode) ──▶ 02-design-spec.md + Figma                 │
                        │                                                     │
@@ -92,6 +102,8 @@ artifacts/<NNN>-<feature-slug>/
   00-brief.md          # the seed (human idea OR Growth's "next feature")
   01-prd.md            # PM: problem, users, scope, success metrics, acceptance criteria
   wireframe.html       # PM: low-fi clickable wireframe
+  02-inspiration.md    # Design scout: Pinterest moodboard + chosen direction + Figma replica link OR design prompt
+  02-inspiration/      # Design scout: saved reference screenshots (ref-N.png)
   02-design-spec.md    # UX: design tokens, screens, states, a11y, component list
   03-architecture.md   # SWE lead: GCP architecture, data model, API spec, 3 work packages
   03a-api/ 03b-pipeline/ 03c-dashboard/   # the 3 builders' code + per-package notes

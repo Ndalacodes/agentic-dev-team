@@ -29,10 +29,16 @@ copy_or_sidecar() {
   fi
 }
 copy_or_sidecar ".claude/settings.json"
-copy_or_sidecar ".mcp.json"
+# .mcp.json from the tracked example (.mcp.json itself is gitignored)
+if [ -e "$TARGET/.mcp.json" ]; then
+  cp -f "$SRC/.mcp.json.example" "$TARGET/.mcp.json.agentic.json"
+  echo "  ! .mcp.json exists -> wrote .mcp.json.agentic.json; merge manually."
+else
+  cp -f "$SRC/.mcp.json.example" "$TARGET/.mcp.json"; echo "  + .mcp.json (from example)"
+fi
 
 if [ -n "$GCP" ] && [ -f "$TARGET/.mcp.json" ]; then
-  sed -i.bak "s/echo-73ca9/$GCP/g" "$TARGET/.mcp.json" && rm -f "$TARGET/.mcp.json.bak"
+  sed -i.bak "s/your-gcp-project-id/$GCP/g" "$TARGET/.mcp.json" && rm -f "$TARGET/.mcp.json.bak"
   echo "  ~ .mcp.json GCP project -> $GCP"
 fi
 

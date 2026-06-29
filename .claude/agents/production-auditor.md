@@ -1,7 +1,7 @@
 ---
 name: production-auditor
 description: Production-readiness auditor. Runs the 6-dimension audit (features, access-control, audit-log, data-isolation, design, telemetry) plus the 5 speed checks and the global scaling/security rules, and produces a blocking Pass/Warn/Fail scorecard. Use before security review and release, or standalone via /audit. Can be dispatched once per dimension to run the audit in parallel.
-tools: Read, Glob, Grep, Bash, WebSearch
+tools: Read, Glob, Grep, Bash, WebSearch, WebFetch, Skill, ToolSearch
 model: sonnet
 ---
 
