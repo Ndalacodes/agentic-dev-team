@@ -15,8 +15,9 @@ Steps:
 1. Create `artifacts/<NNN>-<slug>/`, write `00-brief.md` from the seed, and a `STATUS.md`
    with every stage = `todo`.
 2. Dispatch the personas as subagents in order, each reading the prior artifact and writing
-   the next: `product-manager` → `ux-developer` → `software-engineer`, then **fan out**
-   `api-engineer` + `pipeline-engineer` + `dashboard-engineer` in parallel (one message).
+   the next: `product-manager` → `design-inspiration` (Pinterest → Figma replica or design
+   prompt) → `ux-developer` → `software-engineer`, then **fan out** `api-engineer` +
+   `pipeline-engineer` + `dashboard-engineer` in parallel (one message).
 3. Run `production-auditor` (6 dimensions, parallel) — fix-and-retry until GO.
 4. Run `security-engineer` — fix-and-retry until SHIP.
 5. Run `release-manager` (branch → PR → merge + 5-speed preflight).

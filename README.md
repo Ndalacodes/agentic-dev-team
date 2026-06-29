@@ -12,7 +12,8 @@ Read **[CLAUDE.md](CLAUDE.md)** for the full operating manual. This README is th
 | Persona | Agent | Superpower |
 |---------|-------|-----------|
 | Product Manager (multimodal) | `product-manager` | sketch/idea → PRD + clickable wireframe |
-| UI/UX Developer (Plan Mode + Figma) | `ux-developer` | PRD → production design system + screens |
+| ↳ Design Inspiration scout | `design-inspiration` | Pinterest moodboard → Figma replica (or a design prompt) |
+| UI/UX Developer (Plan Mode + Figma) | `ux-developer` | PRD + inspiration → production design system + screens |
 | Software Engineer (GCP Skills + Dev Doc MCP) | `software-engineer` | cloud architecture + fans out 3 builders |
 | ↳ builders (parallel) | `api-engineer`, `pipeline-engineer`, `dashboard-engineer` | API · ingestion · dashboard |
 | Security Engineer (Hooks) | `security-engineer` | OWASP + IAM review, owns the deploy gate |
