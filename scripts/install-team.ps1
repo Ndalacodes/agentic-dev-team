@@ -48,15 +48,23 @@ function Copy-OrSidecar([string]$rel) {
     Write-Host "  + $rel"
   }
 }
-# 4) settings.json (hooks)  5) .mcp.json
+# 4) settings.json (hooks)
 Copy-OrSidecar ".claude\settings.json"
-Copy-OrSidecar ".mcp.json"
+# 5) .mcp.json — from the tracked example (.mcp.json itself is gitignored)
+$mcpDest = Join-Path $Target ".mcp.json"
+if (Test-Path $mcpDest) {
+  Copy-Item (Join-Path $src ".mcp.json.example") "$mcpDest.agentic.json" -Force
+  Write-Host "  ! .mcp.json exists -> wrote .mcp.json.agentic.json; merge manually." -ForegroundColor Yellow
+} else {
+  Copy-Item (Join-Path $src ".mcp.json.example") $mcpDest -Force
+  Write-Host "  + .mcp.json (from example)"
+}
 
 # Optionally retarget the GCP project in the freshly written .mcp.json
 if ($GcpProject) {
   $mcp = Join-Path $Target ".mcp.json"
   if (Test-Path $mcp) {
-    (Get-Content $mcp -Raw) -replace 'echo-73ca9', $GcpProject | Set-Content $mcp -Encoding utf8
+    (Get-Content $mcp -Raw) -replace 'your-gcp-project-id', $GcpProject | Set-Content $mcp -Encoding utf8
     Write-Host "  ~ .mcp.json GCP project -> $GcpProject"
   }
 }

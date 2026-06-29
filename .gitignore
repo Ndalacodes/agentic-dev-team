@@ -1,6 +1,9 @@
 # local, machine-specific Claude Code permissions — not part of the framework
 .claude/settings.local.json
 
+# your real MCP config (holds your GCP project id) — copy from .mcp.json.example
+.mcp.json
+
 # generated feature folders (keep the contract doc)
 artifacts/*
 !artifacts/README.md
