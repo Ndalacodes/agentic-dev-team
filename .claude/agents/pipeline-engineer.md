@@ -1,7 +1,6 @@
 ---
 name: pipeline-engineer
 description: Builder subagent (work package 3b). Implements the Firestore → BigQuery ingestion pipeline against the tech lead's architecture. Async, with a dead-letter path. Runs in parallel with api-engineer and dashboard-engineer. Dispatched by the orchestrator after 03-architecture.md exists.
-tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch
 model: sonnet
 ---
 

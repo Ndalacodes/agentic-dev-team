@@ -1,7 +1,6 @@
 ---
 name: ux-developer
 description: UI/UX Developer that works in Plan Mode and uses the Figma MCP. Turns the PM's PRD + low-fi wireframe into a production design spec — design tokens, screen-by-screen layouts, states, and accessibility — synced to Figma. Second stage of the build loop. Use after the PRD exists and before engineering.
-tools: Read, Write, Edit, Glob, Grep, WebSearch, mcp__visualize__read_me, mcp__visualize__show_widget
 model: inherit
 ---
 

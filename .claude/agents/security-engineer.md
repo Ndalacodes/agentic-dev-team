@@ -1,7 +1,6 @@
 ---
 name: security-engineer
 description: Security Engineer. Runs an OWASP + IAM least-privilege security review on the build, fixes what it can, and owns the deploy gate — the build does not ship until this passes. Backed by Claude Code hooks and the /security-review command. Fourth stage of the build loop, after the production audit.
-tools: Read, Glob, Grep, Bash, Edit, WebSearch, WebFetch
 model: inherit
 ---
 

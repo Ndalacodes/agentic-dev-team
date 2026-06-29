@@ -45,6 +45,12 @@ When this project is active you (the main thread) act as the **Orchestrator**
 | 5 | **Release Manager** | `release-manager` | branch → PR → merge + the 5 speed checks (a **gate**) | Bash (git/gh), hooks | `05` | `06-release.md` |
 | 6 | **Growth Marketer** (BigQuery) | `growth-marketer` | Live analytics → insights → **next feature brief** | BigQuery MCP, Looker | live data | `07-insights.md` → next `00-brief.md` |
 
+> **Tooling & permissions.** Every agent inherits the full toolset so its mandated MCPs and
+> Skills (Figma, BigQuery, Dev Knowledge, magic, `ui-ux-pro-max`, …) actually resolve — lane
+> discipline comes from each agent's prompt, and the irreversible operations are caught by the
+> safety-gate hooks (§4), not by withholding tools. The one exception is the
+> `production-auditor`, kept **read-only** (no Write/Edit) so it can't "fix" what it grades.
+
 ---
 
 ## 2. The loop (this is what "prompts itself")

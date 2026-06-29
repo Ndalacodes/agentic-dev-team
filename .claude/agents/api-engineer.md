@@ -1,7 +1,6 @@
 ---
 name: api-engineer
 description: Builder subagent (work package 3a). Implements the Cloud Run API + Firestore reads/writes against the tech lead's architecture and API spec. Runs in parallel with pipeline-engineer and dashboard-engineer. Dispatched by the orchestrator after 03-architecture.md exists.
-tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch
 model: sonnet
 ---
 
