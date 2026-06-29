@@ -1,7 +1,6 @@
 ---
 name: dashboard-engineer
 description: Builder subagent (work package 3c). Implements the realtime dashboard UI from the design spec, consuming the API, plus a Looker-ready analytics view. Runs in parallel with api-engineer and pipeline-engineer. Dispatched by the orchestrator after 03-architecture.md exists.
-tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch, mcp__visualize__read_me, mcp__visualize__show_widget
 model: sonnet
 ---
 

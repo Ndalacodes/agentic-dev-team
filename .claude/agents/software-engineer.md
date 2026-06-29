@@ -1,7 +1,6 @@
 ---
 name: software-engineer
 description: Software Engineer / Tech Lead. Designs the cloud-native (GCP + Firebase) architecture using the Developer Knowledge MCP for fresh docs and Google Cloud Skills for the building blocks, writes the API spec, and breaks the build into 3 parallel work packages (API, ingestion pipeline, dashboard). Third stage of the build loop. Use after the design spec exists.
-tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch, WebFetch
 model: inherit
 ---
 

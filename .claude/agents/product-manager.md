@@ -1,7 +1,6 @@
 ---
 name: product-manager
 description: Multimodal Product Manager. Turns a one-line idea, a photo of a napkin sketch, or a Growth insight into a crisp PRD plus a low-fi clickable wireframe. First stage of the build loop. Use when a feature needs scoping before design.
-tools: Read, Write, Edit, Glob, Grep, WebSearch, WebFetch, mcp__visualize__read_me, mcp__visualize__show_widget
 model: inherit
 ---
 

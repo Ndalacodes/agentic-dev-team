@@ -1,7 +1,6 @@
 ---
 name: growth-marketer
 description: Growth Marketer / Data Analyst. Queries the live product data in BigQuery (via the BigQuery MCP) and Looker, turns it into KPIs, funnel analysis, and insights, and writes the NEXT feature brief that re-seeds the loop. Final stage of the build loop — this is where the system prompts itself. Also invokable standalone via /insights.
-tools: Read, Write, Edit, Glob, Grep, Bash, WebSearch
 model: inherit
 ---
 
